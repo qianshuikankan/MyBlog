@@ -11,11 +11,20 @@ const useMock = import.meta.env.PROD
 
 // ===== 生产环境：Mock 适配器 =====
 function createMockInstance() {
+  function buildUrl(url: string, config?: any): string {
+    if (!config?.params) return url
+    const params = new URLSearchParams()
+    for (const [k, v] of Object.entries(config.params)) {
+      if (v !== undefined && v !== null && v !== '') params.set(k, String(v))
+    }
+    const qs = params.toString()
+    return qs ? url + '?' + qs : url
+  }
   return {
-    get: (url: string, config?: any) => mockRequest('GET', url, undefined, config),
+    get: (url: string, config?: any) => mockRequest('GET', buildUrl(url, config), undefined, config),
     post: (url: string, data?: any, config?: any) => mockRequest('POST', url, data, config),
     put: (url: string, data?: any, config?: any) => mockRequest('PUT', url, data, config),
-    delete: (url: string, config?: any) => mockRequest('DELETE', url, undefined, config),
+    delete: (url: string, config?: any) => mockRequest('DELETE', buildUrl(url, config), undefined, config),
   }
 }
 
