@@ -61,9 +61,10 @@
       "status": "published",
       "tags": [
         "Java",
-        "OOP"
+        "OOP",
+        "面向对象"
       ],
-      "viewCount": 9,
+      "viewCount": 1,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -77,9 +78,10 @@
       "status": "published",
       "tags": [
         "Java",
-        "OOP"
+        "OOP",
+        "面向对象"
       ],
-      "viewCount": 5,
+      "viewCount": 3,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -92,10 +94,11 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
+        "Java",
         "工具类",
-        "Java"
+        "算法"
       ],
-      "viewCount": 2,
+      "viewCount": 1,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -109,9 +112,9 @@
       "status": "published",
       "tags": [
         "Java",
-        "基础类"
+        "核心类库"
       ],
-      "viewCount": 6,
+      "viewCount": 2,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -124,10 +127,10 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
-        "字符串",
-        "Java"
+        "Java",
+        "字符串"
       ],
-      "viewCount": 0,
+      "viewCount": 2,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -140,10 +143,10 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
-        "集合",
-        "Java"
+        "Java",
+        "集合"
       ],
-      "viewCount": 0,
+      "viewCount": 2,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -156,10 +159,11 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
+        "Java",
         "集合",
-        "Java"
+        "List"
       ],
-      "viewCount": 0,
+      "viewCount": 1,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -172,10 +176,11 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
+        "Java",
         "集合",
-        "Java"
+        "Set"
       ],
-      "viewCount": 0,
+      "viewCount": 2,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -188,10 +193,11 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
+        "Java",
         "集合",
-        "Java"
+        "Map"
       ],
-      "viewCount": 0,
+      "viewCount": 3,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -207,7 +213,7 @@
         "Java",
         "迭代器"
       ],
-      "viewCount": 0,
+      "viewCount": 2,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -223,7 +229,7 @@
         "Java",
         "泛型"
       ],
-      "viewCount": 0,
+      "viewCount": 2,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -236,10 +242,11 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
+        "Java",
         "IO",
-        "Java"
+        "文件"
       ],
-      "viewCount": 0,
+      "viewCount": 2,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -252,10 +259,11 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
+        "Java",
         "IO",
-        "Java"
+        "字节流"
       ],
-      "viewCount": 0,
+      "viewCount": 1,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -268,10 +276,11 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
+        "Java",
         "IO",
-        "Java"
+        "字符流"
       ],
-      "viewCount": 0,
+      "viewCount": 1,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -284,10 +293,10 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
-        "IO",
-        "Java"
+        "Java",
+        "IO"
       ],
-      "viewCount": 0,
+      "viewCount": 1,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -300,8 +309,8 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
-        "多线程",
-        "Java"
+        "Java",
+        "多线程"
       ],
       "viewCount": 0,
       "createdAt": "2026-05-23T04:41:15.429Z",
@@ -316,10 +325,11 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
+        "Java",
         "多线程",
-        "Java"
+        "并发"
       ],
-      "viewCount": 0,
+      "viewCount": 3,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -332,10 +342,11 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
+        "Java",
         "多线程",
-        "Java"
+        "并发"
       ],
-      "viewCount": 0,
+      "viewCount": 1,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -348,8 +359,8 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
-        "多线程",
-        "Java"
+        "Java",
+        "多线程"
       ],
       "viewCount": 0,
       "createdAt": "2026-05-23T04:41:15.429Z",
@@ -364,10 +375,10 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
-        "网络",
-        "Java"
+        "Java",
+        "网络编程"
       ],
-      "viewCount": 0,
+      "viewCount": 1,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -380,8 +391,8 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
-        "反射",
-        "Java"
+        "Java",
+        "反射"
       ],
       "viewCount": 0,
       "createdAt": "2026-05-23T04:41:15.429Z",
@@ -396,10 +407,10 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
-        "编码",
-        "Java"
+        "Java",
+        "编码"
       ],
-      "viewCount": 0,
+      "viewCount": 2,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -412,10 +423,10 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
-        "国际化",
-        "Java"
+        "Java",
+        "国际化"
       ],
-      "viewCount": 0,
+      "viewCount": 3,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -428,8 +439,8 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
-        "匿名类",
-        "Java"
+        "Java",
+        "匿名类"
       ],
       "viewCount": 0,
       "createdAt": "2026-05-23T04:41:15.429Z",
@@ -444,10 +455,10 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
-        "函数式",
-        "Java"
+        "Java",
+        "函数式编程"
       ],
-      "viewCount": 0,
+      "viewCount": 3,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -460,8 +471,9 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
-        "函数式",
-        "Java"
+        "Java",
+        "Lambda",
+        "函数式编程"
       ],
       "viewCount": 0,
       "createdAt": "2026-05-23T04:41:15.429Z",
@@ -478,7 +490,7 @@
       "tags": [
         "Java"
       ],
-      "viewCount": 0,
+      "viewCount": 2,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -491,10 +503,11 @@
       "categoryId": 5,
       "status": "published",
       "tags": [
+        "Java",
         "继承",
-        "Java"
+        "多态"
       ],
-      "viewCount": 0,
+      "viewCount": 3,
       "createdAt": "2026-05-23T04:41:15.429Z",
       "updatedAt": "2026-05-23T04:41:15.429Z"
     },
@@ -511,7 +524,7 @@
         "Composition API",
         "前端"
       ],
-      "viewCount": 129,
+      "viewCount": 2,
       "createdAt": "2026-01-15T10:00:00Z",
       "updatedAt": "2026-01-15T10:00:00Z"
     },
@@ -528,7 +541,7 @@
         "类型系统",
         "前端"
       ],
-      "viewCount": 96,
+      "viewCount": 1,
       "createdAt": "2026-01-20T10:00:00Z",
       "updatedAt": "2026-01-20T10:00:00Z"
     },
@@ -545,7 +558,7 @@
         "Vue",
         "状态管理"
       ],
-      "viewCount": 75,
+      "viewCount": 0,
       "createdAt": "2026-02-01T10:00:00Z",
       "updatedAt": "2026-02-01T10:00:00Z"
     },
@@ -562,7 +575,7 @@
         "中间件",
         "后端"
       ],
-      "viewCount": 63,
+      "viewCount": 0,
       "createdAt": "2026-02-10T10:00:00Z",
       "updatedAt": "2026-02-10T10:00:00Z"
     },
@@ -579,7 +592,7 @@
         "REST",
         "后端"
       ],
-      "viewCount": 46,
+      "viewCount": 1,
       "createdAt": "2026-02-20T10:00:00Z",
       "updatedAt": "2026-02-20T10:00:00Z"
     },
@@ -596,7 +609,7 @@
         "架构",
         "系统设计"
       ],
-      "viewCount": 89,
+      "viewCount": 2,
       "createdAt": "2026-03-01T10:00:00Z",
       "updatedAt": "2026-03-01T10:00:00Z"
     },
@@ -613,7 +626,7 @@
         "构建工具",
         "前端"
       ],
-      "viewCount": 55,
+      "viewCount": 3,
       "createdAt": "2026-03-10T10:00:00Z",
       "updatedAt": "2026-03-10T10:00:00Z"
     }
