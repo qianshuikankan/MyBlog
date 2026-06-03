@@ -3,99 +3,111 @@ import type { InternalAxiosRequestConfig } from 'axios'
 import { ElMessage } from 'element-plus'
 import { useAuthStore } from '@/stores/auth'
 import router from '@/router'
+import { mockRequest } from '@/mock'
 
-const instance = axios.create({
-  baseURL: '/api',
-  timeout: 15000,
-  headers: {
-    'Content-Type': 'application/json'
+// 生产环境使用内置 mock 数据（无需后端服务器）
+// 开发环境使用真实 Axios 请求（通过 Vite proxy 转发到 server.cjs）
+const useMock = import.meta.env.PROD
+
+// ===== 生产环境：Mock 适配器 =====
+function createMockInstance() {
+  return {
+    get: (url: string, config?: any) => mockRequest('GET', url, undefined, config),
+    post: (url: string, data?: any, config?: any) => mockRequest('POST', url, data, config),
+    put: (url: string, data?: any, config?: any) => mockRequest('PUT', url, data, config),
+    delete: (url: string, config?: any) => mockRequest('DELETE', url, undefined, config),
   }
-})
-
-// 刷新 token 的 pending 队列 —— 解决并发 401 重复刷新问题
-let isRefreshing = false
-let pendingQueue: Array<{
-  resolve: (token: string) => void
-  reject: (err: unknown) => void
-}> = []
-
-function processQueue(err: unknown, token: string | null) {
-  pendingQueue.forEach((p) => {
-    if (err) {
-      p.reject(err)
-    } else {
-      p.resolve(token!)
-    }
-  })
-  pendingQueue = []
 }
 
-instance.interceptors.request.use(
-  (config: InternalAxiosRequestConfig) => {
-    const authStore = useAuthStore()
-    if (authStore.token) {
-      config.headers.Authorization = `Bearer ${authStore.token}`
-    }
-    return config
-  },
-  (error) => Promise.reject(error)
-)
+// ===== 开发环境：真实 Axios 实例 =====
+function createAxiosInstance() {
+  const instance = axios.create({
+    baseURL: '/api',
+    timeout: 15000,
+    headers: { 'Content-Type': 'application/json' }
+  })
 
-instance.interceptors.response.use(
-  (response) => response.data,
-  async (error: AxiosError<{ message?: string }>) => {
-    const { config, response } = error
-    if (!config) return Promise.reject(error)
+  // 刷新 token 的 pending 队列
+  let isRefreshing = false
+  let pendingQueue: Array<{
+    resolve: (token: string) => void
+    reject: (err: unknown) => void
+  }> = []
 
-    // 401 → 尝试刷新 token
-    if (response?.status === 401 && !config.url?.includes('/auth/refresh')) {
+  function processQueue(err: unknown, token: string | null) {
+    pendingQueue.forEach((p) => {
+      if (err) p.reject(err)
+      else p.resolve(token!)
+    })
+    pendingQueue = []
+  }
+
+  instance.interceptors.request.use(
+    (config: InternalAxiosRequestConfig) => {
       const authStore = useAuthStore()
-
-      if (!authStore.refreshToken) {
-        authStore.logout()
-        router.push('/login')
-        return Promise.reject(error)
+      if (authStore.token) {
+        config.headers.Authorization = `Bearer ${authStore.token}`
       }
+      return config
+    },
+    (error) => Promise.reject(error)
+  )
 
-      if (!isRefreshing) {
-        isRefreshing = true
-        try {
-          const res: any = await axios.post('/api/auth/refresh', {
-            refreshToken: authStore.refreshToken
-          })
-          const { token } = res.data
-          authStore.setToken(token)
-          processQueue(null, token)
-          // 重放原始请求
-          config.headers.Authorization = `Bearer ${token}`
-          return instance(config)
-        } catch (refreshErr) {
-          processQueue(refreshErr, null)
+  instance.interceptors.response.use(
+    (response) => response.data,
+    async (error: AxiosError<{ message?: string }>) => {
+      const { config, response } = error
+      if (!config) return Promise.reject(error)
+
+      if (response?.status === 401 && !config.url?.includes('/auth/refresh')) {
+        const authStore = useAuthStore()
+        if (!authStore.refreshToken) {
           authStore.logout()
           router.push('/login')
-          return Promise.reject(refreshErr)
-        } finally {
-          isRefreshing = false
+          return Promise.reject(error)
         }
-      } else {
-        // 已有刷新请求进行中，排队等待
-        return new Promise((resolve, reject) => {
-          pendingQueue.push({
-            resolve: (token: string) => {
-              config.headers.Authorization = `Bearer ${token}`
-              resolve(instance(config))
-            },
-            reject
+
+        if (!isRefreshing) {
+          isRefreshing = true
+          try {
+            const res: any = await axios.post('/api/auth/refresh', {
+              refreshToken: authStore.refreshToken
+            })
+            const { token } = res.data
+            authStore.setToken(token)
+            processQueue(null, token)
+            config.headers.Authorization = `Bearer ${token}`
+            return instance(config)
+          } catch (refreshErr) {
+            processQueue(refreshErr, null)
+            authStore.logout()
+            router.push('/login')
+            return Promise.reject(refreshErr)
+          } finally {
+            isRefreshing = false
+          }
+        } else {
+          return new Promise((resolve, reject) => {
+            pendingQueue.push({
+              resolve: (token: string) => {
+                config.headers.Authorization = `Bearer ${token}`
+                resolve(instance(config))
+              },
+              reject
+            })
           })
-        })
+        }
       }
+
+      const msg = response?.data?.message || error.message || '请求失败'
+      ElMessage.error(msg)
+      return Promise.reject(error)
     }
+  )
 
-    // 业务错误提示
-    const msg = response?.data?.message || error.message || '请求失败'
-    ElMessage.error(msg)
-    return Promise.reject(error)
-  }
-)
+  return instance
+}
 
-export default instance
+const request = useMock ? createMockInstance() : createAxiosInstance()
+
+export default request
