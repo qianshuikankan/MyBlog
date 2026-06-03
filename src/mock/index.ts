@@ -11,11 +11,11 @@ const users = [
 ]
 
 let categories = [
+  { id: 5, name: 'Java', description: 'Java 学习笔记', articleCount: 0, createdAt: '2026-01-01T08:00:00Z', updatedAt: '2026-01-01T08:00:00Z' },
   { id: 1, name: '前端开发', description: '前端技术相关文章', articleCount: 0, createdAt: '2026-01-10T08:00:00Z', updatedAt: '2026-01-10T08:00:00Z' },
   { id: 2, name: '后端开发', description: '后端技术相关文章', articleCount: 0, createdAt: '2026-01-11T08:00:00Z', updatedAt: '2026-01-11T08:00:00Z' },
   { id: 3, name: '系统设计', description: '架构与设计模式', articleCount: 0, createdAt: '2026-01-15T08:00:00Z', updatedAt: '2026-01-15T08:00:00Z' },
-  { id: 4, name: '开发工具', description: '工具链与效率', articleCount: 0, createdAt: '2026-02-01T08:00:00Z', updatedAt: '2026-02-01T08:00:00Z' },
-  { id: 5, name: 'Java', description: 'Java 学习笔记', articleCount: 0, createdAt: '2026-01-01T08:00:00Z', updatedAt: '2026-01-01T08:00:00Z' }
+  { id: 4, name: '开发工具', description: '工具链与效率', articleCount: 0, createdAt: '2026-02-01T08:00:00Z', updatedAt: '2026-02-01T08:00:00Z' }
 ]
 
 let articles: any[] = []
